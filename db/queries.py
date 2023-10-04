@@ -36,6 +36,16 @@ def create_tables():
         )
         """
     )
+
+    cursor.execute(
+    '''
+    CREATE TABLE IF NOT EXISTS subscrebu (
+    ID INTEGER PRIMARY KEY AUTOINCREMENT
+    
+    )
+    ''')
+
+
     db.commit()
 def populate_tables():
     cursor.execute(
@@ -58,6 +68,15 @@ def populate_tables():
         """
     )
     db.commit()
+
+def subscrebu(user_id):
+    cursor.execute(
+        """INSERT INTO subscrebu(ID)
+        VALUES (:user_id)""",
+        {"user_id":user_id},
+    )
+    db.commit()
+
 def get_products():
     cursor.execute(
         """
@@ -73,6 +92,15 @@ def get_product_by_category(category_id):
         {"c_id": category_id},
     )
     return cursor.fetchall()
+
+
+def select_sub():
+    cursor.execute('''SELECT ID FROM subscrebu''')
+    users = cursor.fetchall()
+    users_id = [user for user in users]
+    return users_id
+    return [user for user in cursor.fetchall()]
+
 
 if __name__ == "__main__":
     init_db()
