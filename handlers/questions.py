@@ -39,7 +39,6 @@ async def start_questions(message: Message, state: FSMContext):
     await message.answer("Введите ваше имя", reply_markup=kb)
 
 
-
 @questions_router.message(F.text, UserData.name)
 async def procces_sex(message: Message, state: FSMContext):
     await state.update_data(name=message.text)

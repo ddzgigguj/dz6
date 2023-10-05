@@ -2,7 +2,6 @@ from aiogram import types, Router
 from aiogram.filters import Command
 from bot import scheduler, bot
 from db.queries import select_sub
-
 scheduler_router=Router()
 
 @scheduler_router.message(Command("sub"))

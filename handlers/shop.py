@@ -38,7 +38,6 @@ async def show_kist(message: types.Message):
     for y in manhva:
         await message.answer(y[1])
 
-
 @shop_router.message(F.text == "Манихува")
 async def show_kartina(message: types.Message):
     manihyva = get_product_by_category(3)

@@ -22,7 +22,6 @@ async def hello(message: types.Message):
     )
     await message.answer(START_TEXT, reply_markup=kb)
 
-
 @start_router.callback_query(F.data == "about")
 async def about(callback: types.CallbackQuery):
     await callback.answer()
